@@ -59,34 +59,31 @@ let Book: [[String: String]] = [
 
 //func getBook(at index: Int) -> (title: String, author: String, price: Double)? { return nil }
 //bookStore.setDataSource(bookGetter: getBook(at:))
-var totalBookPrice: Double = 0
+var TotalBookPrice: Double = 0
 var books: [Book] = []
 var authors: [String] = []
 
 func distinctAuthors() -> [String] {
-    authors = distinctAuthors().sorted()
-    return authors
+     authors = (Book.flatMap { $0["author"] })
+     authors = authors.sorted()
+     return authors
 }
 
 
-func TotalBookPrice() -> Double {
-     totalBookPrice = TotalBookPrice()
-     return totalBookPrice
+func totalBookPrice() -> Double {
+     TotalBookPrice = Book.flatMap { $0["price"] }.flatMap { Double($0) }.reduce(0, +)
+     return TotalBookPrice
 }
-
 
 func getBook(at index: Int) -> Book?{
-     var books = [Book]
-     var index = 0
-     while let book = getBook(at: index) {
+    var books = [Book]
+    var index = 0
+    while let book = getBook(at: index) {
         defer { index += 1 }
         books.append(Book)
-     }
-     return nil
+    }
+    return nil
 }
-
-
-
 /*:
 
  Finally, let's show the book store shopping cart:
