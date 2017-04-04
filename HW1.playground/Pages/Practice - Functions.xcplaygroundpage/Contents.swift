@@ -63,23 +63,29 @@ var totalBookPrice: Double = 0
 var books: [Book] = []
 var authors: [String] = []
 
-public func TotalBookPrice() -> Double {
-    totalBookPrice = TotalBookPrice()
+func distinctAuthors() -> [String] {
+    authors = distinctAuthors().sorted()
+    return authors
 }
 
-public func distinctAuthors() -> [String] {
-        authors = distinctAuthors().sorted()
+
+func TotalBookPrice() -> Double {
+     totalBookPrice = TotalBookPrice()
+     return totalBookPrice
 }
 
-public func setDataSource(bookGetter: ((Int) -> Book?)) {
-    var books = [Book]
-    var index = 0
-    while let book = bookGetter(index) {
+
+func getBook(at index: Int) -> Book?{
+     var books = [Book]
+     var index = 0
+     while let book = getBook(at: index) {
         defer { index += 1 }
         books.append(Book)
-    }
-        books = [Book]
+     }
+     return nil
 }
+
+
 
 /*:
 
